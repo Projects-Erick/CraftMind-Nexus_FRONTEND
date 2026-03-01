@@ -5,6 +5,7 @@ import { useAuth } from '../../context/AuthContext';
 const roleNavItems = {
   admin: [
     { path: '/admin', icon: '📊', label: 'Dashboard' },
+    { path: '/vincular-minecraft', icon: '⛏️', label: 'Vincular Minecraft' },
     { path: '/admin/panel', icon: '🛡️', label: 'Admin Panel' },
     { path: '/admin/classes', icon: '🏫', label: 'Turmas' },
     { path: '/admin/reports', icon: '📈', label: 'Relatórios' },
@@ -13,12 +14,14 @@ const roleNavItems = {
   ],
   secretary: [
     { path: '/secretary', icon: '📊', label: 'Dashboard' },
+    { path: '/vincular-minecraft', icon: '⛏️', label: 'Vincular Minecraft' },
     { path: '/admin/panel', icon: '🛡️', label: 'Gerenciar Contas' },
     { path: '/admin/classes', icon: '🏫', label: 'Turmas' },
     { path: '/admin/reports', icon: '📈', label: 'Relatórios' },
   ],
   teacher: [
     { path: '/teacher', icon: '📊', label: 'Dashboard' },
+    { path: '/vincular-minecraft', icon: '⛏️', label: 'Vincular Minecraft' },
     { path: '/teacher/questions', icon: '❓', label: 'Banco de Questões' },
     { path: '/teacher/assignments', icon: '📋', label: 'Atividades' },
     { path: '/teacher/submissions', icon: '📝', label: 'Entregas' },
@@ -27,6 +30,7 @@ const roleNavItems = {
   ],
   student: [
     { path: '/student', icon: '🏠', label: 'Início' },
+    { path: '/vincular-minecraft', icon: '⛏️', label: 'Vincular Minecraft' },
     { path: '/student/grades', icon: '📊', label: 'Minhas Notas' },
     { path: '/student/profile', icon: '👤', label: 'Perfil' },
   ]
