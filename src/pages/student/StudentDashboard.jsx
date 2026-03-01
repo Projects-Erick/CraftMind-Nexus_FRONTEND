@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 import Layout from '../../components/shared/Layout';
 import api from '../../services/api';
 import { useAuth } from '../../context/AuthContext';
+import { useWebSocket } from '../../hooks/useWebSocket';
+import { useQueryClient } from 'react-query';
+import toast from 'react-hot-toast';
 
 const XP_PER_LEVEL = 1000;
 
@@ -35,6 +38,19 @@ const typeLabels = {
 
 export default function StudentDashboard() {
   const { user } = useAuth();
+  const qc = useQueryClient();
+  const token = localStorage.getItem('cm_token');
+
+  // Atualiza dashboard quando Minecraft envia resultado
+  useWebSocket(token, {
+    SUBMISSION_COMPLETE: (msg) => {
+      qc.invalidateQueries('student-dashboard');
+      toast.success(
+        `🎮 Prova entregue! +${msg.xpEarned || 0} XP — ${msg.percentual || 0}%`,
+        { duration: 5000, icon: '⭐' }
+      );
+    }
+  });
   const { data, isLoading } = useQuery('student-dashboard', () =>
     api.get('/dashboard/student').then(r => r.data)
   );
