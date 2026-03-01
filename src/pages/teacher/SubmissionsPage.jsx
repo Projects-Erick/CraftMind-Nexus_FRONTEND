@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useWebSocket } from '../../hooks/useWebSocket';
 import { useQuery, useMutation, useQueryClient } from 'react-query';
 import Layout from '../../components/shared/Layout';
 import api from '../../services/api';
+import { useAuth } from '../../context/AuthContext';
 import toast from 'react-hot-toast';
 
 const STATUS_LABELS = {
@@ -17,6 +19,17 @@ export default function SubmissionsPage() {
   const [gradeModal, setGradeModal] = useState(null); // { id, studentName, title }
   const [score, setScore] = useState('');
   const [feedback, setFeedback] = useState('');
+
+  const { user } = useAuth();
+  const token = localStorage.getItem('cm_token');
+
+  // Atualiza automaticamente quando aluno entrega via Minecraft
+  useWebSocket(token, {
+    SUBMISSION_COMPLETE: () => {
+      qc.invalidateQueries('submissions');
+      toast.success('📬 Nova entrega recebida do Minecraft!', { duration: 4000 });
+    }
+  });
 
   const { data: submissions = [], isLoading } = useQuery(
     ['submissions', filterStatus],
