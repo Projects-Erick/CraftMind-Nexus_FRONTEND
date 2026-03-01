@@ -23,6 +23,7 @@ import GradesPage from './pages/shared/GradesPage';
 import ReportsPage from './pages/shared/ReportsPage';
 import ProfilePage from './pages/shared/ProfilePage';
 import DesignReviewPage from './pages/teacher/DesignReviewPage';
+import VincularMinecraft from './pages/shared/VincularMinecraft';
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: 1, staleTime: 30000 } }
@@ -101,6 +102,9 @@ export default function App() {
             <Route path="/student" element={<ProtectedRoute allowedRoles={['student']}><StudentDashboard /></ProtectedRoute>} />
             <Route path="/student/grades" element={<ProtectedRoute allowedRoles={['student']}><GradesPage readOnly /></ProtectedRoute>} />
             <Route path="/student/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
+
+            {/* Vincular Minecraft — todos os perfis */}
+            <Route path="/vincular-minecraft" element={<ProtectedRoute><VincularMinecraft /></ProtectedRoute>} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>
