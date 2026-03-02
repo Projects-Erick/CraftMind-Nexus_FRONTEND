@@ -28,6 +28,13 @@ export default function SubmissionsPage() {
     SUBMISSION_COMPLETE: () => {
       qc.invalidateQueries('submissions');
       toast.success('📬 Nova entrega recebida do Minecraft!', { duration: 4000 });
+    },
+    NEW_SUBMISSION: (msg) => {
+      qc.invalidateQueries('submissions');
+      toast.success(
+        `📬 ${msg.studentName} entregou "${msg.assignmentTitle}" — ${msg.percentual}%`,
+        { duration: 6000 }
+      );
     }
   });
 
