@@ -18,10 +18,10 @@ export default function SecretaryDashboard() {
       {/* Quick actions */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
         {[
-          { label: 'Criar Usuário', icon: '👤', path: '/admin/users', color: 'blue' },
-          { label: 'Gerenciar Turmas', icon: '🏫', path: '/admin/classes', color: 'green' },
-          { label: 'Relatórios', icon: '📈', path: '/admin/reports', color: 'yellow' },
-          { label: 'Ver Alunos', icon: '👨‍🎓', path: '/admin/users?role=student', color: 'purple' },
+          { label: 'Criar Usuário', icon: '', path: '/admin/users', color: 'blue' },
+          { label: 'Gerenciar Turmas', icon: '', path: '/admin/classes', color: 'green' },
+          { label: 'Relatórios', icon: '', path: '/admin/reports', color: 'yellow' },
+          { label: 'Ver Alunos', icon: '', path: '/admin/users?role=student', color: 'purple' },
         ].map(btn => (
           <Link key={btn.path} to={btn.path}
             className="bg-slate-900 border border-slate-800 hover:border-purple-600/50 rounded-2xl p-4 text-center transition-all hover:bg-slate-800/50 group">
@@ -33,7 +33,7 @@ export default function SecretaryDashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <h3 className="text-white font-semibold mb-4">🏫 Turmas Ativas ({classes.length})</h3>
+          <h3 className="text-white font-semibold mb-4">Turmas Ativas ({classes.length})</h3>
           <div className="space-y-2 max-h-72 overflow-y-auto">
             {classes.map((cls, idx) => (
               <div key={idx} className="flex items-center justify-between p-3 bg-slate-800/50 rounded-xl">
@@ -50,7 +50,7 @@ export default function SecretaryDashboard() {
           </div>
         </div>
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <h3 className="text-white font-semibold mb-4">👥 Usuários Recentes</h3>
+          <h3 className="text-white font-semibold mb-4">Usuários Recentes</h3>
           <div className="space-y-2 max-h-72 overflow-y-auto">
             {recentUsers.map((u, idx) => (
               <div key={idx} className="flex items-center gap-3 p-2 bg-slate-800/50 rounded-xl">
