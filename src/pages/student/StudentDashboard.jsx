@@ -29,11 +29,11 @@ function XPBar({ current, total, level }) {
 }
 
 const typeLabels = {
-  exam: { icon: '📖', label: 'Prova', color: 'red' },
-  quiz: { icon: '❓', label: 'Quiz', color: 'blue' },
-  practice_code: { icon: '💻', label: 'Programação', color: 'green' },
-  practice_design: { icon: '🎨', label: 'Design', color: 'pink' },
-  homework: { icon: '📝', label: 'Tarefa', color: 'yellow' }
+  exam: { icon: '', label: 'Prova', color: 'red' },
+  quiz: { icon: '', label: 'Quiz', color: 'blue' },
+  practice_code: { icon: '', label: 'Programação', color: 'green' },
+  practice_design: { icon: '', label: 'Design', color: 'pink' },
+  homework: { icon: '', label: 'Tarefa', color: 'yellow' }
 };
 
 export default function StudentDashboard() {
@@ -47,7 +47,7 @@ export default function StudentDashboard() {
       qc.invalidateQueries('student-dashboard');
       toast.success(
         `🎮 Prova entregue! +${msg.xpEarned || 0} XP — ${msg.percentual || 0}%`,
-        { duration: 5000, icon: '⭐' }
+        { duration: 5000, icon: '' }
       );
     }
   });
@@ -80,22 +80,22 @@ export default function StudentDashboard() {
             </div>
             <div>
               <div className="text-2xl font-bold text-white">{user?.displayName}</div>
-              <div className="text-purple-300">🏆 {xp.total_xp?.toLocaleString()} XP Total</div>
+              <div className="text-purple-300">{xp.total_xp?.toLocaleString()} XP Total</div>
             </div>
           </div>
           <XPBar current={xp.total_xp || 0} total={XP_PER_LEVEL} level={xp.level || 1} />
           <div className="mt-4 p-3 bg-purple-950/50 rounded-xl text-sm text-purple-300">
-            🎮 Realize atividades <strong>no servidor Minecraft</strong> para ganhar XP!
+            Realize atividades <strong>no servidor Minecraft</strong> para ganhar XP!
           </div>
         </div>
 
         {/* Conquistas recentes */}
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <h3 className="text-white font-semibold mb-3">🏅 Conquistas</h3>
+          <h3 className="text-white font-semibold mb-3">Conquistas</h3>
           <div className="space-y-2 max-h-44 overflow-y-auto">
             {achievements.length > 0 ? achievements.slice(0, 4).map((a, idx) => (
               <div key={idx} className="flex items-center gap-2 p-2 bg-yellow-900/10 border border-yellow-900/20 rounded-lg">
-                <span className="text-lg">{a.icon || '⭐'}</span>
+                <span className="text-lg">{a.icon || ''}</span>
                 <div>
                   <div className="text-yellow-400 text-xs font-semibold">{a.name}</div>
                   <div className="text-slate-500 text-xs">{a.description}</div>
@@ -114,7 +114,7 @@ export default function StudentDashboard() {
         {/* Atividades pendentes */}
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-white font-semibold">📋 Atividades Pendentes</h3>
+            <h3 className="text-white font-semibold">Atividades Pendentes</h3>
             {pending.length > 0 && (
               <span className="px-2 py-1 bg-red-900/40 text-red-400 text-xs rounded-full animate-pulse">
                 {pending.length} pendentes
@@ -123,7 +123,7 @@ export default function StudentDashboard() {
           </div>
           <div className="space-y-2 max-h-64 overflow-y-auto">
             {pending.length > 0 ? pending.map((a, idx) => {
-              const typeInfo = typeLabels[a.type] || { icon: '📋', label: a.type, color: 'purple' };
+              const typeInfo = typeLabels[a.type] || { icon: '', label: a.type, color: 'purple' };
               return (
                 <div key={idx} className="p-3 bg-slate-800/50 border border-slate-700/30 rounded-xl hover:border-purple-600/30 transition-all">
                   <div className="flex items-center gap-2 mb-1">
@@ -138,7 +138,7 @@ export default function StudentDashboard() {
                     <span>{a.class_name}</span>
                     {a.ends_at && (
                       <span className="text-red-400 ml-auto">
-                        ⏰ {new Date(a.ends_at).toLocaleDateString('pt-BR')}
+                        {new Date(a.ends_at).toLocaleDateString('pt-BR')}
                       </span>
                     )}
                   </div>
@@ -149,7 +149,7 @@ export default function StudentDashboard() {
               );
             }) : (
               <div className="text-center py-8">
-                <div className="text-4xl mb-2">🎉</div>
+                <div className="text-4xl mb-2"></div>
                 <div className="text-slate-400">Todas as atividades concluídas!</div>
               </div>
             )}
@@ -158,7 +158,7 @@ export default function StudentDashboard() {
 
         {/* Notas recentes */}
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <h3 className="text-white font-semibold mb-4">📊 Notas Recentes</h3>
+          <h3 className="text-white font-semibold mb-4">Notas Recentes</h3>
           <div className="space-y-2 max-h-64 overflow-y-auto">
             {recentGrades.length > 0 ? recentGrades.map((g, idx) => {
               const nota = parseFloat(g.grade);
@@ -186,14 +186,14 @@ export default function StudentDashboard() {
 
       {/* Ranking da turma */}
       <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-        <h3 className="text-white font-semibold mb-4">🏆 Ranking da Escola</h3>
+        <h3 className="text-white font-semibold mb-4">Ranking da Escola</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 max-h-48 overflow-y-auto">
           {ranking.map((student, idx) => {
             const rankColors = { 0: 'text-yellow-400', 1: 'text-gray-400', 2: 'text-amber-600' };
             return (
               <div key={idx} className={`flex items-center gap-3 p-2 rounded-xl ${idx < 3 ? 'bg-slate-800/80' : 'hover:bg-slate-800/30'} transition-colors`}>
                 <span className={`font-bold w-6 text-center text-sm ${rankColors[idx] || 'text-slate-500'}`}>
-                  {idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : `#${idx + 1}`}
+                  {idx === 0 ? '1º' : idx === 1 ? '2º' : idx === 2 ? '3º' : `#${idx + 1}`}
                 </span>
                 <div className="w-7 h-7 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-full flex items-center justify-center text-white text-xs font-bold">
                   {student.display_name?.charAt(0) || '?'}
