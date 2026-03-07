@@ -40,18 +40,18 @@ export default function AdminDashboard() {
     <Layout title="Dashboard Administrativo">
       {/* Stats grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
-        <StatCard icon="👥" label="Total Usuários" value={stats.totalUsers} color="purple" />
-        <StatCard icon="👨‍🎓" label="Alunos" value={stats.totalStudents} color="blue" />
-        <StatCard icon="👨‍🏫" label="Professores" value={stats.totalTeachers} color="green" />
-        <StatCard icon="🏫" label="Turmas Ativas" value={stats.totalClasses} color="yellow" />
-        <StatCard icon="📋" label="Atividades Ativas" value={stats.activeAssignments} color="orange" />
-        <StatCard icon="📝" label="Entregas Totais" value={stats.totalSubmissions} color="pink" />
+        <StatCard icon="" label="Total Usuários" value={stats.totalUsers} color="purple" />
+        <StatCard icon="" label="Alunos" value={stats.totalStudents} color="blue" />
+        <StatCard icon="" label="Professores" value={stats.totalTeachers} color="green" />
+        <StatCard icon="" label="Turmas Ativas" value={stats.totalClasses} color="yellow" />
+        <StatCard icon="" label="Atividades Ativas" value={stats.activeAssignments} color="orange" />
+        <StatCard icon="" label="Entregas Totais" value={stats.totalSubmissions} color="pink" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
         {/* Atividades por tipo */}
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <h3 className="text-white font-semibold mb-4">📊 Atividades por Tipo</h3>
+          <h3 className="text-white font-semibold mb-4">Atividades por Tipo</h3>
           {submissionsByType.length > 0 ? (
             <ResponsiveContainer width="100%" height={200}>
               <PieChart>
@@ -71,7 +71,7 @@ export default function AdminDashboard() {
 
         {/* XP Ranking */}
         <div className="lg:col-span-2 bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <h3 className="text-white font-semibold mb-4">🏆 Ranking XP - Top 10</h3>
+          <h3 className="text-white font-semibold mb-4">Ranking XP - Top 10</h3>
           <div className="space-y-2 max-h-64 overflow-y-auto">
             {xpRanking.map((student, idx) => (
               <div key={idx} className="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-800/50 transition-colors">
@@ -100,7 +100,7 @@ export default function AdminDashboard() {
 
       {/* Recent Activity */}
       <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-        <h3 className="text-white font-semibold mb-4">🕐 Atividade Recente</h3>
+        <h3 className="text-white font-semibold mb-4">Atividade Recente</h3>
         <div className="space-y-2 max-h-48 overflow-y-auto">
           {recentActivity.map((log, idx) => (
             <div key={idx} className="flex items-center gap-3 py-2 border-b border-slate-800/50">
