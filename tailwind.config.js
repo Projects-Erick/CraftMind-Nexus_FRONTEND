@@ -5,8 +5,8 @@ module.exports = {
     extend: {
       colors: {
         craft: {
-          primary: '#6D28D9',
-          secondary: '#4F46E5',
+          primary: '#0F172A',
+          secondary: '#0f0000',
           accent: '#F59E0B',
           success: '#10B981',
           danger: '#EF4444',
