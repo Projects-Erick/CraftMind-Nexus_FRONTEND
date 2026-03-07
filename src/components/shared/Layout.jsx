@@ -4,35 +4,35 @@ import { useAuth } from '../../context/AuthContext';
 
 const roleNavItems = {
   admin: [
-    { path: '/admin', icon: '📊', label: 'Dashboard' },
-    { path: '/vincular-minecraft', icon: '⛏️', label: 'Vincular Minecraft' },
-    { path: '/admin/panel', icon: '🛡️', label: 'Admin Panel' },
-    { path: '/admin/classes', icon: '🏫', label: 'Turmas' },
-    { path: '/admin/reports', icon: '📈', label: 'Relatórios' },
-    { path: '/secretary', icon: '🏢', label: 'Secretaria' },
-    { path: '/teacher', icon: '👨‍🏫', label: 'View Professor' },
+    { path: '/admin', icon: '•', label: 'Dashboard' },
+    { path: '/vincular-minecraft', icon: '•', label: 'Vincular Minecraft' },
+    { path: '/admin/panel', icon: '•', label: 'Admin Panel' },
+    { path: '/admin/classes', icon: '•', label: 'Turmas' },
+    { path: '/admin/reports', icon: '•', label: 'Relatórios' },
+    { path: '/secretary', icon: '•', label: 'Secretaria' },
+    { path: '/teacher', icon: '•', label: 'View Professor' },
   ],
   secretary: [
-    { path: '/secretary', icon: '📊', label: 'Dashboard' },
-    { path: '/vincular-minecraft', icon: '⛏️', label: 'Vincular Minecraft' },
-    { path: '/admin/panel', icon: '🛡️', label: 'Gerenciar Contas' },
-    { path: '/admin/classes', icon: '🏫', label: 'Turmas' },
-    { path: '/admin/reports', icon: '📈', label: 'Relatórios' },
+    { path: '/secretary', icon: '•', label: 'Dashboard' },
+    { path: '/vincular-minecraft', icon: '•', label: 'Vincular Minecraft' },
+    { path: '/admin/panel', icon: '•', label: 'Gerenciar Contas' },
+    { path: '/admin/classes', icon: '•', label: 'Turmas' },
+    { path: '/admin/reports', icon: '•', label: 'Relatórios' },
   ],
   teacher: [
-    { path: '/teacher', icon: '📊', label: 'Dashboard' },
-    { path: '/vincular-minecraft', icon: '⛏️', label: 'Vincular Minecraft' },
-    { path: '/teacher/questions', icon: '❓', label: 'Banco de Questões' },
-    { path: '/teacher/assignments', icon: '📋', label: 'Atividades' },
-    { path: '/teacher/submissions', icon: '📝', label: 'Entregas' },
-    { path: '/teacher/design-review', icon: '🎨', label: 'Design Review' },
-    { path: '/teacher/grades', icon: '📊', label: 'Notas' },
+    { path: '/teacher', icon: '•', label: 'Dashboard' },
+    { path: '/vincular-minecraft', icon: '•', label: 'Vincular Minecraft' },
+    { path: '/teacher/questions', icon: '•', label: 'Banco de Questões' },
+    { path: '/teacher/assignments', icon: '•', label: 'Atividades' },
+    { path: '/teacher/submissions', icon: '•', label: 'Entregas' },
+    { path: '/teacher/design-review', icon: '•', label: 'Design Review' },
+    { path: '/teacher/grades', icon: '•', label: 'Notas' },
   ],
   student: [
-    { path: '/student', icon: '🏠', label: 'Início' },
-    { path: '/vincular-minecraft', icon: '⛏️', label: 'Vincular Minecraft' },
-    { path: '/student/grades', icon: '📊', label: 'Minhas Notas' },
-    { path: '/student/profile', icon: '👤', label: 'Perfil' },
+    { path: '/student', icon: '•', label: 'Início' },
+    { path: '/vincular-minecraft', icon: '•', label: 'Vincular Minecraft' },
+    { path: '/student/grades', icon: '•', label: 'Minhas Notas' },
+    { path: '/student/profile', icon: '•', label: 'Perfil' },
   ]
 };
 
@@ -52,10 +52,10 @@ export default function Layout({ children, title }) {
   };
 
   const roleNames = {
-    admin: '👑 Administrador',
-    secretary: '🏢 Secretaria',
-    teacher: '👨‍🏫 Professor',
-    student: '👨‍🎓 Aluno'
+    admin: 'Administrador',
+    secretary: 'Secretaria',
+    teacher: 'Professor',
+    student: 'Aluno'
   };
 
   const handleLogout = () => {
@@ -71,7 +71,7 @@ export default function Layout({ children, title }) {
         <div className="p-4 border-b border-slate-800">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-lg flex items-center justify-center flex-shrink-0">
-              <span className="text-lg">⚡</span>
+              <span className="text-lg">CM</span>
             </div>
             {sidebarOpen && (
               <div>
