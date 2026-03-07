@@ -6,10 +6,10 @@ import toast from 'react-hot-toast';
 
 // ─── Constantes ────────────────────────────────────────────
 const ROLES = [
-  { value: 'admin',     label: '👑 Admin',      color: 'text-red-400 bg-red-900/20 border-red-800/30' },
-  { value: 'secretary', label: '🏢 Secretaria', color: 'text-blue-400 bg-blue-900/20 border-blue-800/30' },
-  { value: 'teacher',   label: '👨‍🏫 Professor', color: 'text-green-400 bg-green-900/20 border-green-800/30' },
-  { value: 'student',   label: '👨‍🎓 Aluno',    color: 'text-yellow-400 bg-yellow-900/20 border-yellow-800/30' },
+  { value: 'admin',     label: 'Admin',      color: 'text-red-400 bg-red-900/20 border-red-800/30' },
+  { value: 'secretary', label: 'Secretaria', color: 'text-blue-400 bg-blue-900/20 border-blue-800/30' },
+  { value: 'teacher',   label: 'Professor', color: 'text-green-400 bg-green-900/20 border-green-800/30' },
+  { value: 'student',   label: 'Aluno',    color: 'text-yellow-400 bg-yellow-900/20 border-yellow-800/30' },
 ];
 const roleInfo = Object.fromEntries(ROLES.map(r => [r.value, r]));
 
@@ -71,7 +71,7 @@ function CreateModal({ onClose, isAdmin }) {
 
   const mut = useMutation(d => api.post('/auth/register', d), {
     onSuccess: () => {
-      toast.success('✅ Usuário criado com sucesso!');
+      toast.success('Usuário criado com sucesso!');
       qc.invalidateQueries('admin-users');
       onClose();
     },
@@ -79,13 +79,13 @@ function CreateModal({ onClose, isAdmin }) {
   });
 
   return (
-    <Modal title="➕ Criar Novo Usuário" onClose={onClose}>
+    <Modal title="+ Criar Novo Usuário" onClose={onClose}>
       <form onSubmit={e => { e.preventDefault(); mut.mutate(form); }} className="space-y-4">
         <div className="grid grid-cols-2 gap-3">
           <Input label="Username *" value={form.username} onChange={e => f('username', e.target.value)} required placeholder="ex: joao.silva" />
           <Input label="Nome completo *" value={form.displayName} onChange={e => f('displayName', e.target.value)} required placeholder="João Silva" />
         </div>
-        <Input label="Email" type="email" value={form.email} onChange={e => f('email', e.target.value)} placeholder="joao@escola.edu.br" />
+        <Input label="Email" type="email" value={form.email} onChange={e => f('email', e.target.value)} placeholder="seu.email@escola.pr.gov.br" />
         <div className="grid grid-cols-2 gap-3">
           <Input label="Senha *" type="password" value={form.password} onChange={e => f('password', e.target.value)} required placeholder="mín. 6 caracteres" />
           <Select label="Cargo *" value={form.role} onChange={e => f('role', e.target.value)}>
@@ -98,7 +98,7 @@ function CreateModal({ onClose, isAdmin }) {
         <div className="flex gap-3 pt-2">
           <button type="button" onClick={onClose} className="flex-1 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-sm transition-colors">Cancelar</button>
           <button type="submit" disabled={mut.isLoading} className="flex-1 py-2.5 bg-purple-600 hover:bg-purple-500 text-white rounded-xl text-sm font-semibold disabled:opacity-50 transition-colors">
-            {mut.isLoading ? '⏳ Criando...' : '✓ Criar Conta'}
+            {mut.isLoading ? 'Criando...' : '✓ Criar Conta'}
           </button>
         </div>
       </form>
@@ -124,12 +124,12 @@ function EditModal({ user, onClose, isAdmin }) {
   const [tab, setTab] = useState('info'); // 'info' | 'password'
 
   const editMut = useMutation(d => api.put(`/users/${user.id}`, d), {
-    onSuccess: () => { toast.success('✅ Dados atualizados!'); qc.invalidateQueries('admin-users'); onClose(); },
+    onSuccess: () => { toast.success('Dados atualizados!'); qc.invalidateQueries('admin-users'); onClose(); },
     onError: e => toast.error(e.response?.data?.error || 'Erro ao atualizar'),
   });
 
   const pwMut = useMutation(d => api.put(`/users/${user.id}/password`, d), {
-    onSuccess: () => { toast.success('🔑 Senha alterada!'); setPwForm({ newPassword: '', confirm: '' }); setTab('info'); },
+    onSuccess: () => { toast.success('Senha alterada!'); setPwForm({ newPassword: '', confirm: '' }); setTab('info'); },
     onError: e => toast.error(e.response?.data?.error || 'Erro ao alterar senha'),
   });
 
@@ -141,13 +141,13 @@ function EditModal({ user, onClose, isAdmin }) {
   };
 
   return (
-    <Modal title={`✏️ Editar — ${user.display_name}`} onClose={onClose}>
+    <Modal title={`Editar — ${user.display_name}`} onClose={onClose}>
       {/* Tabs */}
       <div className="flex gap-2 mb-5">
         {['info', 'password'].map(t => (
           <button key={t} onClick={() => setTab(t)}
             className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${tab === t ? 'bg-purple-600 text-white' : 'bg-slate-800 text-slate-400 hover:text-white'}`}>
-            {t === 'info' ? '📋 Dados' : '🔑 Senha'}
+            {t === 'info' ? 'Dados' : 'Senha'}
           </button>
         ))}
       </div>
@@ -158,7 +158,7 @@ function EditModal({ user, onClose, isAdmin }) {
             <Input label="Username" value={form.username} onChange={e => f('username', e.target.value)} required placeholder="usuario" />
             <Input label="Nome completo" value={form.displayName} onChange={e => f('displayName', e.target.value)} required placeholder="Nome Completo" />
           </div>
-          <Input label="Email" type="email" value={form.email} onChange={e => f('email', e.target.value)} placeholder="email@escola.edu.br" />
+          <Input label="Email" type="email" value={form.email} onChange={e => f('email', e.target.value)} placeholder="email@escola.pr.gov.br" />
           {isAdmin && (
             <Select label="Cargo" value={form.role} onChange={e => f('role', e.target.value)}>
               {ROLES.map(r => <option key={r.value} value={r.value}>{r.label}</option>)}
@@ -171,21 +171,21 @@ function EditModal({ user, onClose, isAdmin }) {
           <div className="flex gap-3 pt-2">
             <button type="button" onClick={onClose} className="flex-1 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-sm transition-colors">Cancelar</button>
             <button type="submit" disabled={editMut.isLoading} className="flex-1 py-2.5 bg-purple-600 hover:bg-purple-500 text-white rounded-xl text-sm font-semibold disabled:opacity-50 transition-colors">
-              {editMut.isLoading ? '⏳ Salvando...' : '✓ Salvar Alterações'}
+              {editMut.isLoading ? 'Salvando...' : '✓ Salvar Alterações'}
             </button>
           </div>
         </form>
       ) : (
         <form onSubmit={handlePw} className="space-y-4">
           <div className="p-3 bg-yellow-900/20 border border-yellow-700/30 rounded-xl">
-            <p className="text-yellow-400 text-xs">⚠️ A nova senha será ativada imediatamente. O usuário precisará utilizá-la no próximo login.</p>
+            <p className="text-yellow-400 text-xs">!! A nova senha será ativada imediatamente. O usuário precisará utilizá-la no próximo login.</p>
           </div>
           <Input label="Nova senha" type="password" value={pwForm.newPassword} onChange={e => setPwForm(p => ({ ...p, newPassword: e.target.value }))} required placeholder="mín. 6 caracteres" />
           <Input label="Confirmar nova senha" type="password" value={pwForm.confirm} onChange={e => setPwForm(p => ({ ...p, confirm: e.target.value }))} required placeholder="repita a senha" />
           <div className="flex gap-3 pt-2">
             <button type="button" onClick={() => setTab('info')} className="flex-1 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-sm transition-colors">Voltar</button>
             <button type="submit" disabled={pwMut.isLoading} className="flex-1 py-2.5 bg-yellow-600 hover:bg-yellow-500 text-white rounded-xl text-sm font-semibold disabled:opacity-50 transition-colors">
-              {pwMut.isLoading ? '⏳ Alterando...' : '🔑 Alterar Senha'}
+              {pwMut.isLoading ? '⏳ Alterando...' : 'Alterar Senha'}
             </button>
           </div>
         </form>
@@ -205,10 +205,10 @@ function DeleteModal({ user, onClose }) {
   });
 
   return (
-    <Modal title="🗑️ Deletar Usuário" onClose={onClose}>
+    <Modal title="Deletar Usuário" onClose={onClose}>
       <div className="space-y-4">
         <div className="p-4 bg-red-900/20 border border-red-700/30 rounded-xl">
-          <p className="text-red-400 text-sm font-medium mb-1">⚠️ Ação irreversível!</p>
+          <p className="text-red-400 text-sm font-medium mb-1">Ação irreversível!</p>
           <p className="text-slate-400 text-sm">Isso irá deletar permanentemente a conta de <strong className="text-white">{user.display_name}</strong> (@{user.username}) e todos os seus dados associados.</p>
         </div>
         <div>
@@ -220,7 +220,7 @@ function DeleteModal({ user, onClose }) {
           <button onClick={onClose} className="flex-1 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-sm transition-colors">Cancelar</button>
           <button onClick={() => mut.mutate()} disabled={confirm !== user.username || mut.isLoading}
             className="flex-1 py-2.5 bg-red-600 hover:bg-red-500 text-white rounded-xl text-sm font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
-            {mut.isLoading ? '⏳ Deletando...' : '🗑️ Deletar Conta'}
+            {mut.isLoading ? 'Deletando...' : 'Deletar Conta'}
           </button>
         </div>
       </div>
@@ -257,7 +257,7 @@ export default function AdminPanel() {
   const counts = ROLES.reduce((acc, r) => { acc[r.value] = users.filter(u => u.role === r.value).length; return acc; }, {});
 
   return (
-    <Layout title="🛡️ Painel Administrativo">
+    <Layout title="Painel Administrativo">
 
       {/* Stats cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
@@ -351,7 +351,7 @@ export default function AdminPanel() {
                       {/* Minecraft */}
                       <td className="px-4 py-3">
                         {u.minecraft_username
-                          ? <span className="text-green-400 text-sm">🎮 {u.minecraft_username}</span>
+                          ? <span className="text-green-400 text-sm">{u.minecraft_username}</span>
                           : <span className="text-slate-600 text-sm">—</span>}
                       </td>
                       {/* Status */}
@@ -372,14 +372,14 @@ export default function AdminPanel() {
                           <button onClick={() => setModal({ type: 'edit', user: u })}
                             title="Editar dados"
                             className="p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white hover:bg-purple-900/40 transition-colors text-sm">
-                            ✏️
+                            Edit
                           </button>
                           {/* Ativar/Desativar */}
                           {!isMe && (
                             <button onClick={() => toggleMut.mutate(u.id)}
                               title={u.is_active ? 'Desativar conta' : 'Ativar conta'}
                               className={`p-1.5 rounded-lg text-sm transition-colors ${u.is_active ? 'bg-slate-800 text-orange-400 hover:bg-orange-900/30' : 'bg-slate-800 text-green-400 hover:bg-green-900/30'}`}>
-                              {u.is_active ? '🔒' : '🔓'}
+                              {u.is_active ? 'Lock' : 'Unlock'}
                             </button>
                           )}
                           {/* Deletar — só admin, não pode deletar a si mesmo */}
@@ -387,7 +387,7 @@ export default function AdminPanel() {
                             <button onClick={() => setModal({ type: 'delete', user: u })}
                               title="Deletar conta"
                               className="p-1.5 rounded-lg bg-slate-800 text-red-500 hover:bg-red-900/30 transition-colors text-sm">
-                              🗑️
+                              Deletar
                             </button>
                           )}
                         </div>
