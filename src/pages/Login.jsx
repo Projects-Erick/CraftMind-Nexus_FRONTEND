@@ -43,7 +43,7 @@ export default function Login() {
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 opacity-5"
         style={{
-          backgroundImage: 'linear-gradient(rgba(109,40,217,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(109,40,217,0.5) 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(rgba(220,220,220,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.5) 1px, transparent 1px)',
           backgroundSize: '50px 50px'
         }}>
       </div>
@@ -106,15 +106,15 @@ export default function Login() {
                   <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                   Entrando...
                 </span>
-              ) : '🚀 Entrar'}
+              ) : 'Entrar'}
             </button>
           </form>
 
           {/* Info box */}
           <div className="mt-6 p-3 bg-purple-900/20 border border-purple-800/30 rounded-xl">
             <p className="text-xs text-purple-400 text-center">
-              🎮 Atividades são realizadas <strong>exclusivamente no Minecraft</strong><br/>
-              📊 Este dashboard é para professores e gestão
+              Atividades são realizadas <strong>exclusivamente no Minecraft</strong><br/>
+              Este dashboard é para professores e gestão
             </p>
           </div>
         </div>
@@ -122,10 +122,10 @@ export default function Login() {
         {/* Roles display */}
         <div className="mt-6 grid grid-cols-4 gap-2">
           {[
-            { icon: '👑', role: 'Admin', color: 'from-red-900/40 to-red-800/20 border-red-800/30' },
-            { icon: '🏢', role: 'Secretaria', color: 'from-blue-900/40 to-blue-800/20 border-blue-800/30' },
-            { icon: '👨‍🏫', role: 'Professor', color: 'from-green-900/40 to-green-800/20 border-green-800/30' },
-            { icon: '👨‍🎓', role: 'Aluno', color: 'from-yellow-900/40 to-yellow-800/20 border-yellow-800/30' },
+            { icon: '', role: 'Admin', color: 'from-red-900/40 to-red-800/20 border-red-800/30' },
+            { icon: '', role: 'Secretaria', color: 'from-blue-900/40 to-blue-800/20 border-blue-800/30' },
+            { icon: '', role: 'Professor', color: 'from-green-900/40 to-green-800/20 border-green-800/30' },
+            { icon: '', role: 'Aluno', color: 'from-yellow-900/40 to-yellow-800/20 border-yellow-800/30' },
           ].map(({ icon, role, color }) => (
             <div key={role} className={`bg-gradient-to-b ${color} border rounded-xl p-2 text-center`}>
               <div className="text-xl">{icon}</div>
