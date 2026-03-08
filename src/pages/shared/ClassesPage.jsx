@@ -133,7 +133,7 @@ export default function ClassesPage() {
           onClick={() => { setShowForm(true); setForm(emptyForm); }}
           className="px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-xl text-sm font-medium transition-colors"
         >
-          ➕ Nova Turma
+          Nova Turma
         </button>
       </div>
 
@@ -203,7 +203,7 @@ export default function ClassesPage() {
                     </div>
                     <div>
                       <div className="text-white text-sm">{s.display_name || s.username}</div>
-                      {s.minecraft_username && <div className="text-green-400 text-xs">🎮 {s.minecraft_username}</div>}
+                      {s.minecraft_username && <div className="text-green-400 text-xs">{s.minecraft_username}</div>}
                     </div>
                   </label>
                 ))}
@@ -283,8 +283,8 @@ export default function ClassesPage() {
                   </div>
                 </div>
                 <div className="flex items-center justify-between text-xs text-slate-400">
-                  <span>👨‍🏫 {cls.teacher_count || 0} professores</span>
-                  <span>📋 {cls.assignment_count || 0} atividades</span>
+                  <span>{cls.teacher_count || 0} professores</span>
+                  <span>{cls.assignment_count || 0} atividades</span>
                 </div>
                 <button onClick={() => setExpanded(expanded === cls.id ? null : cls.id)}
                   className="w-full mt-3 py-2 bg-slate-800/60 hover:bg-slate-700/60 text-slate-300 text-xs rounded-xl transition-colors">
@@ -302,7 +302,7 @@ export default function ClassesPage() {
                         onClick={() => { setShowAddStudent(cls.id); setSelectedStudents([]); }}
                         className="text-xs px-2 py-1 bg-purple-600/40 hover:bg-purple-600/70 text-purple-300 rounded-lg transition-colors"
                       >
-                        ➕ Adicionar
+                        Adicionar
                       </button>
                     </div>
                     <div className="space-y-1 max-h-36 overflow-y-auto">
@@ -314,7 +314,7 @@ export default function ClassesPage() {
                             {s.display_name?.charAt(0)}
                           </div>
                           <span className="text-slate-300 truncate flex-1">{s.display_name}</span>
-                          {s.minecraft_username && <span className="text-green-400 text-xs">🎮 {s.minecraft_username}</span>}
+                          {s.minecraft_username && <span className="text-green-400 text-xs">{s.minecraft_username}</span>}
                           <button
                             onClick={() => removeStudentMut.mutate({ classId: cls.id, studentId: s.id })}
                             className="text-red-400 hover:text-red-300 opacity-0 group-hover:opacity-100 transition-opacity ml-1"
@@ -333,7 +333,7 @@ export default function ClassesPage() {
                         onClick={() => { setShowAddTeacher(cls.id); setTeacherForm({ teacherId: '', subjectId: '' }); }}
                         className="text-xs px-2 py-1 bg-blue-600/40 hover:bg-blue-600/70 text-blue-300 rounded-lg transition-colors"
                       >
-                        ➕ Vincular
+                        Vincular
                       </button>
                     </div>
                     <div className="space-y-1">
@@ -341,7 +341,7 @@ export default function ClassesPage() {
                         <p className="text-slate-500 text-xs">Nenhum professor vinculado</p>
                       ) : (classDetail.teachers || []).map(t => (
                         <div key={t.id} className="text-xs text-slate-300 flex items-center gap-2">
-                          <span>👨‍🏫</span>
+                          <span></span>
                           <span className="truncate">{t.display_name}</span>
                           {t.subject_name && <span className="text-slate-500">— {t.subject_name}</span>}
                         </div>
@@ -354,7 +354,7 @@ export default function ClassesPage() {
           ))}
           {classes.length === 0 && (
             <div className="col-span-3 text-center py-16">
-              <div className="text-5xl mb-3">🏫</div>
+              <div className="text-5xl mb-3"></div>
               <div className="text-slate-400">Nenhuma turma cadastrada.</div>
             </div>
           )}
