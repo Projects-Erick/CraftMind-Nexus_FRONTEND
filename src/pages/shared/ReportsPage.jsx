@@ -50,16 +50,16 @@ export default function ReportsPage() {
         <>
           {/* KPIs */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <StatCard icon="👥" label="Alunos Ativos"     value={school.totalStudents}   color="blue" />
-            <StatCard icon="📋" label="Atividades Publicadas" value={school.totalAssignments} color="green" />
-            <StatCard icon="📬" label="Entregas Realizadas"   value={school.totalSubmissions} color="yellow" />
-            <StatCard icon="📊" label="Média Geral da Escola" value={school.avgScore ? parseFloat(school.avgScore).toFixed(1) : '—'} color="purple" sub="escala 0–10" />
+            <StatCard icon="" label="Alunos Ativos"     value={school.totalStudents}   color="blue" />
+            <StatCard icon="" label="Atividades Publicadas" value={school.totalAssignments} color="green" />
+            <StatCard icon="" label="Entregas Realizadas"   value={school.totalSubmissions} color="yellow" />
+            <StatCard icon="" label="Média Geral da Escola" value={school.avgScore ? parseFloat(school.avgScore).toFixed(1) : '—'} color="purple" sub="escala 0–10" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
             {/* Desempenho por turma */}
             <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-              <h3 className="text-white font-semibold mb-4">📊 Média por Turma</h3>
+              <h3 className="text-white font-semibold mb-4">Média por Turma</h3>
               {byClass.length > 0 ? (
                 <ResponsiveContainer width="100%" height={220}>
                   <BarChart data={byClass} layout="vertical">
@@ -74,7 +74,7 @@ export default function ReportsPage() {
 
             {/* Desempenho por disciplina */}
             <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-              <h3 className="text-white font-semibold mb-4">📚 Média por Disciplina</h3>
+              <h3 className="text-white font-semibold mb-4">Média por Disciplina</h3>
               {bySubject.length > 0 ? (
                 <ResponsiveContainer width="100%" height={220}>
                   <PieChart>
@@ -91,7 +91,7 @@ export default function ReportsPage() {
           {/* Tendência por bimestre */}
           {bimesterTrend.length > 0 && (
             <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 mb-6">
-              <h3 className="text-white font-semibold mb-4">📈 Evolução por Bimestre</h3>
+              <h3 className="text-white font-semibold mb-4">Evolução por Bimestre</h3>
               <ResponsiveContainer width="100%" height={200}>
                 <LineChart data={bimesterTrend}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#1E293B" />
@@ -106,7 +106,7 @@ export default function ReportsPage() {
 
           {/* Top XP */}
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-            <h3 className="text-white font-semibold mb-4">🏆 Ranking XP — Top 15</h3>
+            <h3 className="text-white font-semibold mb-4">Ranking XP — Top 15</h3>
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
@@ -122,7 +122,7 @@ export default function ReportsPage() {
                   {xpTop.map((s, i) => (
                     <tr key={i} className="border-b border-slate-800/40 hover:bg-slate-800/20">
                       <td className="px-3 py-2 text-sm font-bold" style={{ color: i===0?'#FBBF24':i===1?'#94A3B8':i===2?'#B45309':'#475569' }}>
-                        {i===0?'🥇':i===1?'🥈':i===2?'🥉':`#${i+1}`}
+                        {i===0?'1':i===1?'2':i===2?'3':`#${i+1}`}
                       </td>
                       <td className="px-3 py-2">
                         <div className="flex items-center gap-2">
