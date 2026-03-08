@@ -55,7 +55,7 @@ export default function Login() {
             <span className="text-4xl">C-M</span>
           </div>
           <h1 className="text-4xl font-bold text-white mb-1">CraftMind</h1>
-          <p className="text-purple-300 text-lg font-medium">Nexus Education System</p>
+          <p className="text-gray-300 text-lg font-medium">Nexus Education System</p>
           <div className="flex items-center justify-center gap-2 mt-2">
             <div className="w-8 h-px bg-white"></div>
             <span className="text-white text-sm">Escola Digital × Minecraft</span>
@@ -64,7 +64,7 @@ export default function Login() {
         </div>
 
         {/* Login card */}
-        <div className="bg-slate-900/80 backdrop-blur-xl rounded-2xl border border-purple-900/50 p-8 shadow-2xl shadow-purple-900/20">
+        <div className="bg-gray-850 backdrop-blur-xl rounded-2xl border border-white p-8 shadow-2xl shadow-purple-900/20">
           <h2 className="text-xl font-semibold text-white mb-6 text-center">Entrar na Plataforma</h2>
 
           <form onSubmit={handleSubmit} className="space-y-5">
