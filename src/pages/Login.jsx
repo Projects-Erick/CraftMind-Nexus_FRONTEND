@@ -37,7 +37,7 @@ export default function Login() {
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-black rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-gray rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-gray-700 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float" style={{ animationDelay: '2s' }}></div>
       </div>
 
       {/* Grid pattern overlay */}
@@ -57,9 +57,9 @@ export default function Login() {
           <h1 className="text-4xl font-bold text-white mb-1">CraftMind</h1>
           <p className="text-purple-300 text-lg font-medium">Nexus Education System</p>
           <div className="flex items-center justify-center gap-2 mt-2">
-            <div className="w-8 h-px bg-purple-600"></div>
-            <span className="text-purple-400 text-sm">Escola Digital × Minecraft</span>
-            <div className="w-8 h-px bg-purple-600"></div>
+            <div className="w-8 h-px bg-white"></div>
+            <span className="text-white text-sm">Escola Digital × Minecraft</span>
+            <div className="w-8 h-px bg-white"></div>
           </div>
         </div>
 
