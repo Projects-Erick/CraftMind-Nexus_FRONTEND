@@ -32,7 +32,7 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen bg-gray-800 flex items-center justify-center relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-black rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float"></div>
@@ -99,7 +99,7 @@ export default function Login() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 bg-gradient-to-r from-black to-gray-600 hover:from-gray-300 hover:to-white text-white font-semibold rounded-xl transition-all duration-200 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none shadow-lg shadow-gray-200"
+              className="w-full py-3 bg-gradient-to-r from-black to-gray-600 hover:from-gray-300 hover:to-white text-white border:from-white border:to-gray-100 font-semibold rounded-xl transition-all duration-200 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none shadow-lg shadow-gray-400"
             >
               {loading ? (
                 <span className="flex items-center justify-center gap-2">
