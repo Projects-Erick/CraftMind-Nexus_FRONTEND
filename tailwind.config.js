@@ -23,7 +23,7 @@ module.exports = {
       },
       keyframes: {
         float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
-        pulseGlow: { '0%, 100%': { boxShadow: '0 0 5px #6D28D9' }, '50%': { boxShadow: '0 0 20px #6D28D9, 0 0 40px #4F46E5' } }
+        pulseGlow: { '0%, 100%': { boxShadow: '0 0 5px #' }, '50%': { boxShadow: '0 0 20px #363636, 0 0 40px #363636' } }
       }
     }
   },
