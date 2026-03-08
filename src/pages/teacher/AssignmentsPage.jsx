@@ -5,11 +5,11 @@ import api from '../../services/api';
 import toast from 'react-hot-toast';
 
 const TYPES = [
-  { value: 'exam', label: '📖 Prova', desc: 'Avaliação formal' },
-  { value: 'quiz', label: '❓ Quiz', desc: 'Questionário rápido' },
-  { value: 'practice_code', label: '💻 Programação', desc: 'Desafio de código' },
-  { value: 'practice_design', label: '🎨 Design', desc: 'PixelStudio 24x24' },
-  { value: 'homework', label: '📝 Tarefa', desc: 'Dissertativa' },
+  { value: 'exam', label: 'Prova', desc: 'Avaliação formal' },
+  { value: 'quiz', label: 'Quiz', desc: 'Questionário rápido' },
+  { value: 'practice_code', label: 'Programação', desc: 'Desafio de código' },
+  { value: 'practice_design', label: 'Design', desc: 'PixelStudio 24x24' },
+  { value: 'homework', label: 'Tarefa', desc: 'Dissertativa' },
 ];
 
 const STATUS_COLORS = {
@@ -206,28 +206,28 @@ export default function AssignmentsPage() {
                     <div className="flex items-center gap-2 flex-wrap">
                       <span className="text-white font-medium">{a.title}</span>
                       <span className={`px-2 py-0.5 rounded-full text-xs border ${STATUS_COLORS[a.status]}`}>
-                        {a.status === 'draft' ? 'Rascunho' : a.status === 'published' ? '✅ Publicada' : '🔒 Encerrada'}
+                        {a.status === 'draft' ? 'Rascunho' : a.status === 'published' ? 'Publicada' : 'Encerrada'}
                       </span>
                     </div>
                     <div className="flex gap-3 text-xs text-slate-400 mt-1 flex-wrap">
-                      <span>🏫 {a.class_name}</span>
-                      <span>📚 {a.subject_name}</span>
-                      <span>❓ {a.question_count || 0} questões</span>
-                      <span>📝 {a.submission_count || 0} entregas</span>
+                      <span>{a.class_name}</span>
+                      <span>{a.subject_name}</span>
+                      <span>{a.question_count || 0} questões</span>
+                      <span>{a.submission_count || 0} entregas</span>
                       <span className="text-yellow-400">+{a.xp_reward} XP</span>
-                      {a.ends_at && <span className="text-red-400">⏰ {new Date(a.ends_at).toLocaleDateString('pt-BR')}</span>}
+                      {a.ends_at && <span className="text-red-400">{new Date(a.ends_at).toLocaleDateString('pt-BR')}</span>}
                     </div>
                   </div>
                   <div className="flex gap-2">
                     {a.status === 'draft' && (
                       <button onClick={() => { if (window.confirm('Publicar e notificar alunos?')) pubMut.mutate(a.id); }}
                         className="px-3 py-1.5 bg-green-700 hover:bg-green-600 text-white text-xs rounded-lg font-medium transition-colors">
-                        🚀 Publicar
+                        Publicar
                       </button>
                     )}
                     {a.status === 'draft' && (
                       <button onClick={() => { if (window.confirm('Remover?')) delMut.mutate(a.id); }}
-                        className="p-1.5 text-slate-500 hover:text-red-400 rounded-lg transition-colors">🗑️</button>
+                        className="p-1.5 text-slate-500 hover:text-red-400 rounded-lg transition-colors">Delete</button>
                     )}
                   </div>
                 </div>
@@ -236,7 +236,7 @@ export default function AssignmentsPage() {
           })}
           {assignments.length === 0 && (
             <div className="text-center py-16">
-              <div className="text-5xl mb-3">📋</div>
+              <div className="text-5xl mb-3"></div>
               <div className="text-slate-400">Nenhuma atividade. Crie a primeira!</div>
             </div>
           )}
