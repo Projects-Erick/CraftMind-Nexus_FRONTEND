@@ -16,9 +16,9 @@ function gradeColor(g) {
 function gradeLabel(g) {
   if (g === null || g === undefined) return '—';
   const n = parseFloat(g);
-  if (n >= 7) return '✅ Aprovado';
-  if (n >= 5) return '⚠️ Recuperação';
-  return '❌ Reprovado';
+  if (n >= 7) return 'Aprovado';
+  if (n >= 5) return 'Recuperação';
+  return 'Reprovado';
 }
 
 export default function GradesPage({ readOnly = false }) {
@@ -120,7 +120,7 @@ export default function GradesPage({ readOnly = false }) {
         <div className="text-center py-12"><div className="w-8 h-8 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto"></div></div>
       ) : Object.keys(bySubject).length === 0 ? (
         <div className="text-center py-16">
-          <div className="text-5xl mb-3">📊</div>
+          <div className="text-5xl mb-3"></div>
           <div className="text-slate-400">Nenhuma nota registrada ainda.</div>
         </div>
       ) : (
