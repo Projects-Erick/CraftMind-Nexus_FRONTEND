@@ -4,7 +4,7 @@ import Layout from '../../components/shared/Layout';
 import api from '../../services/api';
 import toast from 'react-hot-toast';
 
-const ROLE_LABELS = { admin:'👑 Admin', secretary:'🏢 Secretaria', teacher:'👨‍🏫 Professor', student:'👨‍🎓 Aluno' };
+const ROLE_LABELS = { admin:'Admin', secretary:'Secretaria', teacher:'Professor', student:'Aluno' };
 const ROLE_COLORS = { admin:'text-red-400 bg-red-900/20', secretary:'text-blue-400 bg-blue-900/20', teacher:'text-green-400 bg-green-900/20', student:'text-yellow-400 bg-yellow-900/20' };
 
 const emptyForm = { username:'', email:'', password:'', role:'student', displayName:'', minecraftUsername:'' };
@@ -43,11 +43,11 @@ export default function UsersPage() {
               {r === '' ? 'Todos' : ROLE_LABELS[r]}
             </button>
           ))}
-          <input value={search} onChange={e => setSearch(e.target.value)} placeholder="🔍 Buscar..."
+          <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Buscar..."
             className="bg-slate-800 border border-slate-700 text-white text-sm rounded-xl px-3 py-1.5 focus:ring-2 focus:ring-purple-500 focus:outline-none w-44" />
         </div>
         <button onClick={() => { setShowForm(true); setForm(emptyForm); }}
-          className="px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-xl text-sm font-medium">➕ Novo Usuário</button>
+          className="px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-xl text-sm font-medium">Novo Usuário</button>
       </div>
 
       {showForm && (
@@ -153,7 +153,7 @@ export default function UsersPage() {
                       </button>
                       <button onClick={() => { if(window.confirm('Redefinir senha para Mudar@123?')) resetPwMut.mutate(u.id); }}
                         className="px-2 py-1 rounded-lg text-xs bg-slate-800 text-slate-400 hover:text-white transition-colors">
-                        🔑
+                        
                       </button>
                     </div>
                   </td>
