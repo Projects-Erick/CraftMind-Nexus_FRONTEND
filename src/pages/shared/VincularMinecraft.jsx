@@ -61,7 +61,7 @@ export default function VincularMinecraft() {
   return (
     <div className="max-w-lg mx-auto mt-8 p-6 bg-gray-800 rounded-2xl shadow-xl border border-gray-700">
       <div className="flex items-center gap-3 mb-6">
-        <span className="text-3xl">⛏️</span>
+        <span className="text-3xl"></span>
         <div>
           <h2 className="text-xl font-bold text-white">Vincular Minecraft</h2>
           <p className="text-sm text-gray-400">Conecte sua conta ao servidor</p>
@@ -74,7 +74,7 @@ export default function VincularMinecraft() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-green-400 font-semibold flex items-center gap-2">
-                <span>✔</span> Conta vinculada!
+                <span></span> Conta vinculada!
               </p>
               {status.minecraftUsername && (
                 <p className="text-gray-300 text-sm mt-1">
@@ -96,7 +96,7 @@ export default function VincularMinecraft() {
       ) : (
         <div className="bg-yellow-900/30 border border-yellow-700 rounded-xl p-4 mb-5">
           <p className="text-yellow-400 text-sm flex items-center gap-2">
-            <span>⚠️</span> Sua conta não está vinculada ao Minecraft ainda.
+            <span></span> Sua conta não está vinculada ao Minecraft ainda.
           </p>
         </div>
       )}
@@ -108,7 +108,7 @@ export default function VincularMinecraft() {
           <li className="flex gap-2"><span className="text-emerald-400 font-bold">1.</span> Clique em "Gerar Código" abaixo</li>
           <li className="flex gap-2"><span className="text-emerald-400 font-bold">2.</span> Entre no servidor Minecraft</li>
           <li className="flex gap-2"><span className="text-emerald-400 font-bold">3.</span> Digite o comando gerado no chat</li>
-          <li className="flex gap-2"><span className="text-emerald-400 font-bold">4.</span> Pronto! O vínculo é automático ✅</li>
+          <li className="flex gap-2"><span className="text-emerald-400 font-bold">4.</span> Pronto! O vínculo é automático </li>
         </ol>
       </div>
 
@@ -118,7 +118,7 @@ export default function VincularMinecraft() {
           <div className="flex items-center justify-between mb-3">
             <span className="text-gray-400 text-sm">Comando para digitar no Minecraft:</span>
             <span className={`text-xs font-mono px-2 py-1 rounded-full ${timeLeft < 60 ? 'bg-red-900 text-red-300' : 'bg-gray-700 text-gray-300'}`}>
-              ⏱ {fmtTime(timeLeft)}
+              {fmtTime(timeLeft)}
             </span>
           </div>
 
@@ -128,7 +128,7 @@ export default function VincularMinecraft() {
             </code>
             <button onClick={copyCode}
               className="flex-shrink-0 bg-emerald-700 hover:bg-emerald-600 text-white text-xs px-3 py-1.5 rounded-lg transition-colors">
-              {copied ? '✔ Copiado!' : 'Copiar'}
+              {copied ? 'Copiado!' : 'Copiar'}
             </button>
           </div>
 
@@ -146,7 +146,7 @@ export default function VincularMinecraft() {
         {loading ? (
           <><span className="animate-spin">⟳</span> Gerando...</>
         ) : (
-          <>{code && timeLeft > 0 ? '🔄 Gerar novo código' : '⚡ Gerar Código'}</>
+          <>{code && timeLeft > 0 ? 'Gerar novo código' : 'Gerar Código'}</>
         )}
       </button>
 
