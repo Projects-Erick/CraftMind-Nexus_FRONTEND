@@ -32,7 +32,7 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen w-full py-3 bg-gradient-to-r from-bg-gray-200 to-bg-black flex items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen from-bg-gray-200 to-bg-black flex items-center justify-center relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-black rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float"></div>
@@ -69,7 +69,7 @@ export default function Login() {
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-purple-300 mb-1.5">
+              <label className="block text-sm font-medium text-gray-200 mb-1.5">
                 Usuário ou Email
               </label>
               <input
@@ -78,7 +78,7 @@ export default function Login() {
                 onChange={e => setUsername(e.target.value)}
                 required
                 placeholder="seu.usuario"
-                className="w-full px-4 py-3 bg-slate-800/60 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                className="w-full px-4 py-3 bg-slate-800/60 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all"
               />
             </div>
 
@@ -92,14 +92,14 @@ export default function Login() {
                 onChange={e => setPassword(e.target.value)}
                 required
                 placeholder="••••••••"
-                className="w-full px-4 py-3 bg-slate-800/60 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                className="w-full px-4 py-3 bg-slate-800/60 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all"
               />
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 bg-gradient-to-r from-black to-gray-600 hover:from-gray-300 hover:to-white text-white font-semibold rounded-xl transition-all duration-200 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none shadow-lg shadow-purple-900/30"
+              className="w-full py-3 bg-gradient-to-r from-black to-gray-600 hover:from-gray-300 hover:to-white text-white font-semibold rounded-xl transition-all duration-200 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none shadow-lg shadow-white"
             >
               {loading ? (
                 <span className="flex items-center justify-center gap-2">
