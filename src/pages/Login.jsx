@@ -64,7 +64,7 @@ export default function Login() {
         </div>
 
         {/* Login card */}
-        <div className="bg-gray-850 backdrop-blur-xl rounded-2xl border border-white p-8 shadow-2xl shadow-gray-400">
+        <div className="bg-gray-850 backdrop-blur-xl rounded-2xl border border-white p-8">
           <h2 className="text-xl font-semibold text-white mb-6 text-center">Entrar na Plataforma</h2>
 
           <form onSubmit={handleSubmit} className="space-y-5">
