@@ -89,7 +89,7 @@ export default function DesignReviewPage() {
                 <button onClick={() => rateMut.mutate({ id: selected.id, rating, comment })}
                   disabled={!rating || rateMut.isLoading}
                   className="flex-1 py-2.5 bg-pink-600 hover:bg-pink-500 text-white rounded-xl text-sm font-medium disabled:opacity-50">
-                  {rateMut.isLoading ? 'Salvando...' : '🎨 Avaliar'}
+                  {rateMut.isLoading ? 'Salvando...' : 'Avaliar'}
                 </button>
               </div>
             </div>
@@ -101,7 +101,7 @@ export default function DesignReviewPage() {
         <div className="text-center py-12"><div className="w-8 h-8 border-4 border-pink-500 border-t-transparent rounded-full animate-spin mx-auto"></div></div>
       ) : designs.length === 0 ? (
         <div className="text-center py-16">
-          <div className="text-5xl mb-3">🎨</div>
+          <div className="text-5xl mb-3"></div>
           <div className="text-slate-400">Nenhum design enviado ainda.</div>
           <div className="text-slate-500 text-sm mt-1">Alunos enviam via /pixelstudio no Minecraft</div>
         </div>
@@ -127,7 +127,7 @@ export default function DesignReviewPage() {
                 )}
                 <button onClick={() => setSelected(d)}
                   className="px-3 py-1.5 bg-pink-700 hover:bg-pink-600 text-white text-xs rounded-lg transition-colors font-medium">
-                  {d.teacher_rating != null ? '✏️ Reeditar' : '🎨 Avaliar'}
+                  {d.teacher_rating != null ? 'Reavaliar' : 'Avaliar'}
                 </button>
               </div>
             </div>
