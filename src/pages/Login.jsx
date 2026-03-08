@@ -83,7 +83,7 @@ export default function Login() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-purple-300 mb-1.5">
+              <label className="block text-sm font-medium text-white mb-1.5">
                 Senha
               </label>
               <input
