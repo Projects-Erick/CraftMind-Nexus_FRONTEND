@@ -99,7 +99,7 @@ export default function Login() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 bg-gradient-to-r from-black to-gray-600 hover:from-gray-300 hover:to-white text-white font-semibold rounded-xl transition-all duration-200 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none shadow-lg shadow-white"
+              className="w-full py-3 bg-gradient-to-r from-black to-gray-600 hover:from-gray-300 hover:to-white text-white font-semibold rounded-xl transition-all duration-200 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none shadow-lg shadow-gray-200"
             >
               {loading ? (
                 <span className="flex items-center justify-center gap-2">
@@ -111,8 +111,8 @@ export default function Login() {
           </form>
 
           {/* Info box */}
-          <div className="mt-6 p-3 bg-purple-900/20 border border-purple-800/30 rounded-xl">
-            <p className="text-xs text-purple-400 text-center">
+          <div className="mt-6 p-3 bg-gray-780 border border-white rounded-xl">
+            <p className="text-xs text-white text-center">
               Atividades são realizadas <strong>exclusivamente no Minecraft</strong><br/>
               Este dashboard é para professores e gestão
             </p>
