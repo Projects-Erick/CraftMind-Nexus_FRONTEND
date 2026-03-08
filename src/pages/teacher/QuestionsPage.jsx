@@ -232,16 +232,16 @@ export default function QuestionsPage() {
                 </div>
                 <div className="flex gap-2 flex-shrink-0">
                   <button onClick={() => { setEditId(q.id); setForm({ ...q }); setShowForm(true); }}
-                    className="p-1.5 text-slate-400 hover:text-blue-400 hover:bg-blue-900/20 rounded-lg transition-colors text-sm">✏️</button>
+                    className="p-1.5 text-slate-400 hover:text-blue-400 hover:bg-blue-900/20 rounded-lg transition-colors text-sm">Edit</button>
                   <button onClick={() => { if (window.confirm('Remover questão?')) deleteMutation.mutate(q.id); }}
-                    className="p-1.5 text-slate-400 hover:text-red-400 hover:bg-red-900/20 rounded-lg transition-colors text-sm">🗑️</button>
+                    className="p-1.5 text-slate-400 hover:text-red-400 hover:bg-red-900/20 rounded-lg transition-colors text-sm">Remove</button>
                 </div>
               </div>
             </div>
           ))}
           {questions.length === 0 && (
             <div className="text-center py-16">
-              <div className="text-5xl mb-3">❓</div>
+              <div className="text-5xl mb-3"></div>
               <div className="text-slate-400">Nenhuma questão encontrada.</div>
               <div className="text-slate-500 text-sm mt-1">Crie sua primeira questão!</div>
             </div>
