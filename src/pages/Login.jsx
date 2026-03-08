@@ -51,7 +51,7 @@ export default function Login() {
       <div className="relative z-10 w-full max-w-md px-4">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl mb-4 shadow-lg shadow-purple-900/50 animate-pulse-glow">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-black to-gray-700 rounded-2xl mb-4 shadow-lg shadow-gray-400 animate-pulse-glow">
             <span className="text-4xl">C-M</span>
           </div>
           <h1 className="text-4xl font-bold text-white mb-1">CraftMind</h1>
@@ -64,7 +64,7 @@ export default function Login() {
         </div>
 
         {/* Login card */}
-        <div className="bg-gray-850 backdrop-blur-xl rounded-2xl border border-white p-8 shadow-2xl shadow-purple-900/20">
+        <div className="bg-gray-850 backdrop-blur-xl rounded-2xl border border-white p-8 shadow-2xl shadow-gray-400">
           <h2 className="text-xl font-semibold text-white mb-6 text-center">Entrar na Plataforma</h2>
 
           <form onSubmit={handleSubmit} className="space-y-5">
