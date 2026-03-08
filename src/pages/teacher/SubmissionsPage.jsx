@@ -7,10 +7,10 @@ import { useAuth } from '../../context/AuthContext';
 import toast from 'react-hot-toast';
 
 const STATUS_LABELS = {
-  in_progress: { label: '⏳ Em andamento', color: 'text-yellow-400 bg-yellow-900/20' },
-  submitted:   { label: '📬 Entregue',     color: 'text-blue-400 bg-blue-900/20' },
-  graded:      { label: '✅ Avaliado',      color: 'text-green-400 bg-green-900/20' },
-  late:        { label: '⚠️ Atrasado',      color: 'text-red-400 bg-red-900/20' },
+  in_progress: { label: 'Em andamento', color: 'text-yellow-400 bg-yellow-900/20' },
+  submitted:   { label: 'Entregue',     color: 'text-blue-400 bg-blue-900/20' },
+  graded:      { label: 'Avaliado',      color: 'text-green-400 bg-green-900/20' },
+  late:        { label: 'Atrasado',      color: 'text-red-400 bg-red-900/20' },
 };
 
 export default function SubmissionsPage() {
@@ -27,12 +27,12 @@ export default function SubmissionsPage() {
   useWebSocket(token, {
     SUBMISSION_COMPLETE: () => {
       qc.invalidateQueries('submissions');
-      toast.success('📬 Nova entrega recebida do Minecraft!', { duration: 4000 });
+      toast.success('Nova entrega recebida do Minecraft!', { duration: 4000 });
     },
     NEW_SUBMISSION: (msg) => {
       qc.invalidateQueries('submissions');
       toast.success(
-        `📬 ${msg.studentName} entregou "${msg.assignmentTitle}" — ${msg.percentual}%`,
+        `${msg.studentName} entregou "${msg.assignmentTitle}" — ${msg.percentual}%`,
         { duration: 6000 }
       );
     }
@@ -84,7 +84,7 @@ export default function SubmissionsPage() {
                   className="w-full bg-slate-800 border border-slate-700 text-white text-lg font-bold rounded-xl px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:outline-none" />
                 {score && (
                   <div className={`mt-1 text-sm font-medium ${parseFloat(score) >= 70 ? 'text-green-400' : parseFloat(score) >= 50 ? 'text-yellow-400' : 'text-red-400'}`}>
-                    {parseFloat(score) >= 70 ? '✅ Aprovado' : parseFloat(score) >= 50 ? '⚠️ Recuperação' : '❌ Reprovado'}
+                    {parseFloat(score) >= 70 ? 'Aprovado' : parseFloat(score) >= 50 ? 'Recuperação' : 'Reprovado'}
                   </div>
                 )}
               </div>
@@ -139,7 +139,7 @@ export default function SubmissionsPage() {
                     {s.status === 'submitted' && (
                       <button onClick={() => setGradeModal({ id: s.id, studentName: s.student_name, title: s.assignment_title })}
                         className="px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white text-sm rounded-xl font-medium transition-colors">
-                        ✏️ Avaliar
+                        Avaliar
                       </button>
                     )}
                     {s.status === 'graded' && s.score !== null && (
