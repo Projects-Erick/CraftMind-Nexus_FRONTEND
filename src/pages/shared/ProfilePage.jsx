@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 import { useAuth } from '../../context/AuthContext';
 
 const XP_PER_LEVEL = 1000;
-const ROLE_LABELS = { admin:'👑 Administrador', secretary:'🏢 Secretaria', teacher:'👨‍🏫 Professor', student:'👨‍🎓 Aluno' };
+const ROLE_LABELS = { admin:'Administrador', secretary:'Secretaria', teacher:'Professor', student:'Aluno' };
 
 export default function ProfilePage() {
   const { user, refreshUser } = useAuth();
@@ -51,7 +51,7 @@ export default function ProfilePage() {
               <p className="text-purple-300">@{user?.username}</p>
               <p className="text-slate-400 text-sm mt-1">{ROLE_LABELS[user?.role]}</p>
               {user?.minecraftUsername && (
-                <p className="text-green-400 text-sm mt-1">🎮 {user.minecraftUsername}</p>
+                <p className="text-green-400 text-sm mt-1">{user.minecraftUsername}</p>
               )}
             </div>
             {user?.role === 'student' && (
@@ -80,7 +80,7 @@ export default function ProfilePage() {
           {['profile','password'].map(t => (
             <button key={t} onClick={() => setTab(t)}
               className={`flex-1 py-2 rounded-lg text-sm font-medium transition-all ${tab === t ? 'bg-purple-600 text-white' : 'text-slate-400 hover:text-white'}`}>
-              {t === 'profile' ? '👤 Dados Pessoais' : '🔑 Alterar Senha'}
+              {t === 'profile' ? 'Dados Pessoais' : 'Alterar Senha'}
             </button>
           ))}
         </div>
@@ -142,11 +142,11 @@ export default function ProfilePage() {
                   className="w-full bg-slate-800 border border-slate-700 text-white text-sm rounded-xl px-3 py-2.5 focus:ring-2 focus:ring-purple-500 focus:outline-none" />
               </div>
               <div className="p-3 bg-yellow-900/10 border border-yellow-800/20 rounded-xl text-xs text-yellow-400">
-                ⚠️ Após alterar a senha você precisará fazer login novamente.
+                Após alterar a senha você precisará fazer login novamente.
               </div>
               <button type="submit" disabled={pwMut.isLoading}
                 className="w-full py-2.5 bg-purple-600 hover:bg-purple-500 text-white rounded-xl text-sm font-medium disabled:opacity-50 transition-colors">
-                {pwMut.isLoading ? 'Alterando...' : '🔑 Alterar Senha'}
+                {pwMut.isLoading ? 'Alterando...' : 'Alterar Senha'}
               </button>
             </form>
           </div>
