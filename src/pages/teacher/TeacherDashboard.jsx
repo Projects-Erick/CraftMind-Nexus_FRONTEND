@@ -28,10 +28,10 @@ export default function TeacherDashboard() {
       {/* Quick actions */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
         {[
-          { label: 'Nova Questão', icon: '❓', path: '/teacher/questions', color: 'blue' },
-          { label: 'Nova Atividade', icon: '📋', path: '/teacher/assignments', color: 'green' },
-          { label: 'Ver Entregas', icon: '📝', path: '/teacher/submissions', color: 'yellow' },
-          { label: 'Design Review', icon: '🎨', path: '/teacher/design-review', color: 'pink' },
+          { label: 'Nova Questão', icon: '', path: '/teacher/questions', color: 'blue' },
+          { label: 'Nova Atividade', icon: '', path: '/teacher/assignments', color: 'green' },
+          { label: 'Ver Entregas', icon: '', path: '/teacher/submissions', color: 'yellow' },
+          { label: 'Design Review', icon: '', path: '/teacher/design-review', color: 'pink' },
         ].map(btn => (
           <Link key={btn.path} to={btn.path}
             className={`bg-slate-900 border border-slate-800 hover:border-${btn.color}-600/50 rounded-2xl p-4 text-center transition-all hover:bg-slate-800/50 group`}>
@@ -44,7 +44,7 @@ export default function TeacherDashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Minhas turmas */}
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <h3 className="text-white font-semibold mb-4">🏫 Minhas Turmas</h3>
+          <h3 className="text-white font-semibold mb-4">Minhas Turmas</h3>
           <div className="space-y-2 max-h-64 overflow-y-auto">
             {myClasses.length > 0 ? myClasses.map((cls, idx) => (
               <div key={idx} className="flex items-center justify-between p-3 bg-slate-800/50 rounded-xl">
@@ -62,7 +62,7 @@ export default function TeacherDashboard() {
         {/* Pendentes de avaliação */}
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-white font-semibold">⏳ Aguardando Avaliação</h3>
+            <h3 className="text-white font-semibold">Aguardando Avaliação</h3>
             {pendingGrades.length > 0 && (
               <span className="px-2 py-1 bg-yellow-900/40 text-yellow-400 text-xs rounded-full">
                 {pendingGrades.length} pendentes
@@ -83,7 +83,7 @@ export default function TeacherDashboard() {
               </div>
             )) : (
               <div className="text-slate-500 text-center py-8">
-                <div className="text-3xl mb-2">✅</div>
+                <div className="text-3xl mb-2"></div>
                 Todas as entregas avaliadas!
               </div>
             )}
@@ -93,7 +93,7 @@ export default function TeacherDashboard() {
 
       {/* Desempenho por turma */}
       <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 mb-6">
-        <h3 className="text-white font-semibold mb-4">📊 Desempenho por Turma/Disciplina</h3>
+        <h3 className="text-white font-semibold mb-4">Desempenho por Turma/Disciplina</h3>
         {classPerformance.length > 0 ? (
           <ResponsiveContainer width="100%" height={200}>
             <BarChart data={classPerformance}>
@@ -113,7 +113,7 @@ export default function TeacherDashboard() {
       {/* Atividades recentes */}
       <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-white font-semibold">📋 Minhas Atividades</h3>
+          <h3 className="text-white font-semibold">Minhas Atividades</h3>
           <Link to="/teacher/assignments" className="text-purple-400 text-sm hover:text-purple-300">Ver todas →</Link>
         </div>
         <div className="space-y-2 max-h-64 overflow-y-auto">
